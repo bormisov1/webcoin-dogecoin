@@ -3,7 +3,6 @@ const varuint = require('varuint-bitcoin')
 const reverse = require('buffer-reverse')
 const crypto = require('crypto')
 const BufferWrap = require('./buffer_wrap')
-const binding = require('./build/Release/binding.node')
 
 const mergedMiningHeader = Buffer.from([0xfa, 0xbe, 0x6d, 0x6d])
 
@@ -295,29 +294,6 @@ class DogeBlock extends Block {
   // Overridden to ensure we only hash the basic headers, not AuxPoW.
   getHash () {
     return bcrypto.hash256(this.toBuffer(0))
-  }
-
-  // Get the proof-of-work hash for this block.
-  getPoWHash () {
-    return binding.scrypt(this.toBuffer(0))
-  }
-
-  // Get the proof-of-work hash used to verify this block.
-  getMiningHash () {
-    if (this.isAuxPoW()) {
-      this.auxPoW.check(this)
-      return reverse(this.auxPoW.parentBlock.getPoWHash())
-    } else {
-      return reverse(this.getPoWHash())
-    }
-  }
-
-  // Verify the proof-of-work.
-  checkProofOfWork () {
-    const hash = this.getMiningHash()
-    const target = Block.calculateTarget(this.bits)
-
-    return hash.compare(target) <= 0
   }
 }
 

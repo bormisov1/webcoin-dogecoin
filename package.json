@@ -1,6 +1,6 @@
 {
   "name": "webcoin-dogecoin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dogecoin parameters for webcoin",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stephank/webcoin-dogecoin.git"
+    "url": "git+https://github.com/bormisov1/webcoin-dogecoin.git"
   },
   "author": "Stéphan Kochen <stephan@kochen.nl>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stephank/webcoin-dogecoin/issues"
+    "url": "https://github.com/bormisov1/webcoin-dogecoin/issues"
   },
-  "homepage": "https://github.com/stephank/webcoin-dogecoin#readme",
+  "homepage": "https://github.com/bormisov1/webcoin-dogecoin#readme",
   "dependencies": {
     "bitcoin-net": "git+https://github.com/stephank/bitcoin-net.git#master",
     "bitcoin-util": "^2.0.3",
